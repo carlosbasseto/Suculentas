@@ -54,6 +54,7 @@ h1{
 .container__imagem img {
   max-height: 100px; /* Ajuste a altura conforme necessário */
   margin-right: 10px; /* Adiciona um espaçamento entre as imagens */
+  width: 100px;
 }
 
 .logo-container h1{
@@ -649,12 +650,12 @@ b{
 
 .nome-contato{
   display: inline-block;
-  font-size: 43px;
+  font-size: 37px;
 }
 
 .aviso{
   padding: 30px;
-  font-size: 43px;
+  font-size: 37px;
 }
 
 
