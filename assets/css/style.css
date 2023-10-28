@@ -624,15 +624,9 @@ b{
   color: #2dbe1d;
 }
 
-.aviso{
-  padding: 30px;
-  font-size: 35px;
-}
 
-.nome-contato{
-  display: inline-block;
-  font-size: 35px;
-}
+
+
 
 @media screen and (min-width : 320px){
   h1{
@@ -652,6 +646,17 @@ b{
   width: 60px;
   
 }
+
+.nome-contato{
+  display: inline-block;
+  font-size: 50px;
+}
+
+.aviso{
+  padding: 30px;
+  font-size: 50px;
+}
+
 
 
 }
