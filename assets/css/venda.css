@@ -1,0 +1,61 @@
+@import url("assets/css/venda-inicio.css");
+
+*{
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.section-venda{
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    border-bottom: 7px solid #410a8a;
+    border-end-end-radius: 25px;
+    height:75px;
+}
+
+.cabecalho-venda{
+    width: 80px;
+    text-align: center;
+}
+
+.lista-venda{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    
+}
+
+.itens-lista-venda{
+    padding: 10px;
+    font-size: 20px;
+    margin: 10px 0;
+    margin-bottom: 10px;
+    transition: margin-bottom 0.3s ease-in-out;
+    color: #e0df93;
+}
+
+.itens-lista-venda:hover{
+    margin-bottom: 20px; 
+    border-bottom: 3px solid #410a8a;
+    transition-property: 0.5s;
+    border-radius: 3px;
+}
+
+.link-venda{
+    text-decoration: none;
+    color: #b792e7;
+}
+
+.itens-lista{
+    color: #b792e7;
+    margin-right: 550px;
+    font-size: 25px;
+    white-space: nowrap;
+}
