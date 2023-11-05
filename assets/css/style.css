@@ -1285,10 +1285,7 @@ span{
 
 
 
-.icon {
-  font-size: 30px;
-  margin-right: 20px;
-}
+
 
 .text {
   position: relative;
@@ -1360,5 +1357,10 @@ span{
   display: block !important;
 }
 
-
+.teste-imagem{
+  width: 500px;
+  height: 195px;
+}
    
+
+
