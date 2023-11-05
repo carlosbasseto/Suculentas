@@ -759,6 +759,10 @@ h3{
    font-size: 16px;
  }
  
+.section-celular{
+  display: none;
+}
+
  .subtitulo-section-1{
   display: none;
  }
@@ -789,9 +793,6 @@ h3{
    
  }
 
- 
- 
- 
  
  
  header{
@@ -1271,8 +1272,9 @@ span{
 
 .plant-info {
   display: flex;
+  align-items: center;
   flex-direction: column;
-  background-color: #cbd3ca;
+  background-color: #EFF7F2;
 }
 
 .info-item {
@@ -1281,30 +1283,82 @@ span{
   margin-bottom: 20px;
 }
 
+
+
 .icon {
   font-size: 30px;
   margin-right: 20px;
 }
 
 .text {
+  position: relative;
   max-width: 500px;
+  cursor: pointer; 
+  transition: transform 0.5s ease; 
+}
+
+
+.text:hover{
+  transform: rotateY(180deg);
+}
+.text:hover .texto-img{
+  display: none;
+}
+.text .texto-img{
+  display: block;
+}
+.text .teste-imagem{
+  display: none;
+}
+.text:hover .teste-imagem{
+  width: 100%;
+  display: block;
 }
 
 .h2 {
-  border-left: 3px solid  #000;
+  text-align: center;
   padding: 20px;
 }
 
+.testando{
+  display: flex;
+  align-items: center;
 
+}
 
 .h2-section{
   text-align: center;
-  font-size: 30px;
+  font-size: 40px;
   padding: 30px;
+  flex: 1;
+  float: left;
+  margin-right: 10px;
 }
 
 .icon {
-  font-size: 30px;
+  font-size: 2em;
   margin-right: 20px;
-  float: left; /* Adiciona um float à esquerda para os ícones ficarem ao lado dos títulos */
+ 
 }
+
+
+.info-item{
+  width: 500px;
+  height: 200px;
+  border: 3px solid #333;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #fffffff7;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.mostrar-imagem {
+  display: block !important;
+}
+
+
+   
