@@ -27,6 +27,10 @@ html {
   scroll-padding-top: 4rem;
 }
 
+body{
+  background-color: #121212;
+}
+
 /* HEADER */
 
 header{
@@ -45,9 +49,10 @@ h1{
   color: white;
 }
 
+
 .subtitulo-section-1{
   color: #000;
-  background-color: rgb(252, 252, 252);
+  background-color: #dd1b1b;
   font-size: 35px;
 }
 
@@ -124,7 +129,7 @@ nav ul li button:hover{
 /* HOME */
 
 .home-section{
-  background-color: #ffffff;
+  background-color: #121212;
   background-repeat: no-repeat;
   height: 100vh;
   width: 100%;
@@ -141,7 +146,7 @@ nav ul li button:hover{
 .home-section .title-container h2{
   font-size: 64px;
   font-weight: bold;
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
 .buttons-container{
@@ -603,7 +608,7 @@ footer span a{
   text-align: center;
   font-size: 30px;
   padding: 10px;
-  color: var(--primary-text);
+  color: var(--white);
  
 }
 
@@ -703,7 +708,9 @@ h3{
   display: none;
 }
 
-
+.ver-mais{
+  font-size: 40px;
+}
 
 }
 
@@ -720,6 +727,10 @@ h3{
     display: none;
   }
 
+  .ver-mais{
+    font-size: 20px;
+  }
+  
   .what-do-section{
     display: none;
   }
