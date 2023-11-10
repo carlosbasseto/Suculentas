@@ -14,13 +14,21 @@
     <title>Reserva</title>
   </head>
   <body>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("zU5XbKKNwsRoSc2mD");
+        })();
+    </script>
     
        <div class="container">
         <div class="header">
           <h2>Garanta sua Suculenta</h2>
         </div>
         
-        <form action="assets/PHP/FORMULARIO.PHP" name="form_contato" method="post" >
+        <div name="form_contato">
           <div class="form-control">
             <label for="username">Nome de usuário</label>
             <input
@@ -40,7 +48,7 @@
             <i class="fas fa-check-circle"></i>
             <small>Mensagem de erro</small>
           </div>
-          <button class="botao-enviar" type="submit">Enviar</button>
+          <button class="botao-enviar" onclick="sendEmail()">Enviar</button>
         </form>
       </div>
       

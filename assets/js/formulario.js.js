@@ -4,9 +4,52 @@ const email = document.getElementById("email");
 const password = document.getElementById("password");
 const passwordConfirmation = document.getElementById("password-confirmation");
 
+// const API_KEY = "646fd5563c4f466550df1c1b48c64d0f-8c9e82ec-7fcc2523";
+// const DOMAIN_NAME = "sandbox84c1be3ee41146719ddaa1717060146c.mailgun.org";
+
+// const urlMailGun = `https://api.mailgun.net/v3/${DOMAIN_NAME}/messages`
+
+// function sendEmail() {
+//   console.log("chegou aqui");
+//   const formData = new FormData();
+//   console.log(formData);
+//   formData.append("from", "vendas2ce@gmail.com");
+//   formData.append("to", "vendas2ce@gmail.com");
+//   formData.append("subject", "Hello World!");
+
+//   fetch(urlMailGun, {
+//     method: "POST",
+//     headers: {
+//       Authorization: `Basic ${btoa(`api:${API_KEY}`)}`
+//     },
+//     body: formData
+//   }).then(response => {
+//     if(response.ok) {
+//       console.log(response.json());
+//       return response.json();
+//     }
+//     throw new Error("Falhou ao enviar email");
+//   }).then(data => {
+//     console.log("Email enviado:", data);
+//   }).catch(error => {
+//     console.error("Error:", error);
+//   });
+// }
+
+
+function sendEmail() {
+  const params = {
+    name: "Guilherme",
+    email: "vendas2ce@gmail.com",
+    from: "vendas2ce@gmail.com",
+    subject: "Hello world",
+    message: "Hello World!"
+  }
+  emailjs.send("service_xxqmj63", "template_dyl44gh", params).then(alert("Email send!"));
+}
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-
   checkInputs();
 });
 
