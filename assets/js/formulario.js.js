@@ -81,3 +81,119 @@ function checkEmail(email) {
   );
 }
 
+function abrirModal(){
+  const modal = document.getElementById('janela-modal')
+  modal.classList.add('abrir')
+
+  modal.addEventListener('click', (e) => {
+    if(e.target.id == 'fechar' || e.target.id == 'janela-modal'){
+      modal.classList.remove('abrir')
+    }
+  })
+}
+
+function atualizarSoma() {
+  
+  var checkbox1 = document.getElementById('checkbox1');
+  var checkbox2 = document.getElementById('checkbox2');
+  var checkbox3 = document.getElementById('checkbox3');
+  var checkbox4 = document.getElementById('checkbox4');
+  var checkbox5 = document.getElementById('checkbox5');
+  var checkbox6 = document.getElementById('checkbox6');
+  var checkbox7 = document.getElementById('checkbox7');
+  var checkbox8 = document.getElementById('checkbox8');
+  var checkbox9 = document.getElementById('checkbox9');
+  var checkbox10 = document.getElementById('checkbox10');
+  var checkbox11 = document.getElementById('checkbox11');
+  var checkbox12 = document.getElementById('checkbox12');
+  var checkbox13 = document.getElementById('checkbox13');
+  var checkbox14 = document.getElementById('checkbox14');
+  var checkbox15 = document.getElementById('checkbox15');
+  var checkbox16 = document.getElementById('checkbox16');
+  var checkbox17 = document.getElementById('checkbox17');
+  var checkbox18 = document.getElementById('checkbox18');
+  var somaElemento = document.getElementById('soma');
+
+ 
+  var soma = 0;
+
+ 
+  if (checkbox1.checked) {
+      soma += 5;
+  }
+
+ 
+  if (checkbox2.checked) {
+      soma += 5;
+  }
+
+  if (checkbox3.checked) {
+    soma += 5;
+}
+
+if (checkbox4.checked) {
+  soma += 5;
+}
+
+if (checkbox5.checked) {
+  soma += 5;
+}
+
+if (checkbox6.checked) {
+  soma += 5;
+}
+
+if (checkbox7.checked) {
+  soma += 5;
+}
+
+if (checkbox8.checked) {
+  soma += 5;
+}
+
+if (checkbox9.checked) {
+  soma += 5;
+}
+
+if (checkbox10.checked) {
+  soma += 5;
+}
+
+if (checkbox11.checked) {
+  soma += 5;
+}
+
+if (checkbox12.checked) {
+  soma += 5;
+}
+
+if (checkbox13.checked) {
+  soma += 5;
+}
+
+if (checkbox14.checked) {
+  soma += 5;
+}
+
+if (checkbox15.checked) {
+  soma += 5;
+}
+
+if (checkbox16.checked) {
+  soma += 5;
+}
+
+if (checkbox17.checked) {
+  soma += 5;
+}
+
+if (checkbox18.checked) {
+  soma += 5;
+}
+  
+  somaElemento.textContent = soma.toLocaleString("pt-br", {style: "currency", currency: "BRL"});
+}
+
+
+
+
