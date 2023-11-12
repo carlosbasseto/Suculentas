@@ -20,7 +20,7 @@ async function sendEmail() {
   }
 
   const params = {
-    email: email.value,
+    to: email.value,
     subect: "Vendas do Segundo Ano Sala: CE",
     html: `
       <h1> Olá, ${username || "Aluno"}, segue a lista de suculentas que você escolheu </h1>
