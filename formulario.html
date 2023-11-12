@@ -14,236 +14,428 @@
     <title>Reserva</title>
   </head>
   <body>
-    <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
-    </script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
     <script type="text/javascript">
-        (function(){
-            emailjs.init("zU5XbKKNwsRoSc2mD");
-        })();
+      (function () {
+        emailjs.init("zU5XbKKNwsRoSc2mD");
+      })();
     </script>
-    
-       <div class="container">
-        <div class="header">
-          <h2>Garanta sua Suculenta</h2>
+
+    <div class="container">
+      <div class="header">
+        <h2>Garanta sua Suculenta</h2>
+      </div>
+
+      <form name="form_contato">
+        <div class="form-control">
+          <label for="username">Nome de usuário</label>
+          <input
+            type="text"
+            id="username"
+            placeholder="Digite seu nome de usuário..."
+          />
+          <i class="fas fa-exclamation-circle"></i>
+          <i class="fas fa-check-circle"></i>
+          <small>Mensagem de erro</small>
         </div>
-        
-        <div name="form_contato">
-          <div class="form-control">
-            <label for="username">Nome de usuário</label>
-            <input
-              type="text"
-              id="username"
-              placeholder="Digite seu nome de usuário..."
-            />
-            <i class="fas fa-exclamation-circle"></i>
-            <i class="fas fa-check-circle"></i>
-            <small>Mensagem de erro</small>
-          </div>
-  
-          <div class="form-control">
-            <label for="email">Email</label>
-            <input type="text" id="email" placeholder="Digite seu email.." />
-            <i class="fas fa-exclamation-circle"></i>
-            <i class="fas fa-check-circle"></i>
-            <small>Mensagem de erro</small>
-          </div>
-          <button class="botao-enviar" onclick="sendEmail()">Enviar</button>
-        </form>
-      </div>
-      
 
+        <div class="form-control">
+          <label for="email">Email</label>
+          <input type="text" id="email" placeholder="Digite seu email.." />
+          <i class="fas fa-exclamation-circle"></i>
+          <i class="fas fa-check-circle"></i>
+          <small>Mensagem de erro</small>
+        </div>
+        <button class="botao-enviar">Enviar</button>
+      </form>
+    </div>
 
-      <div onclick="abrirModal()" class="btn"> Escolha sua suculenta</div>
+    <div onclick="abrirModal()" class="btn">Escolha sua suculenta</div>
 
-      <div class="janela-modal" id="janela-modal">
-       <div class="modal">
-       <button class="fechar" id="fechar">X</button>
-         <h1>Escolha sua especie</h1>
-         
-         <section class="table__body">
-          <table>
-            
-              <thead>
-                  <tr>
-                      <th>Ação<span class="icon-arrow"></span></th>
-                      <th>Planta<span class="icon-arrow">&UpArrow;</span></th>
-                      <th>Especie<span class="icon-arrow">&UpArrow;</span></th>
-                      <th>Estoque<span class="icon-arrow">&UpArrow;</span></th>
-                      <th>Preço<span class="icon-arrow">&UpArrow;</span></th>
-                  </tr>
-              </thead>
-              <tbody>
-                  
-                  <tr>
-                      <td><input type="checkbox" id="checkbox1" onclick="atualizarSoma()"></td>
-                      <td><img src="assets/img/echeveria-pulidonis.jpg" alt="echeveria-pulidonis"></td>
-                      <td>
-                          <p class="status verde">Eceveria-pulidonis</p>
-                      </td>
-                      <td>30</td>
-                      <td>R$5,00</td>
-                  </tr>
-                  <tr>
-                      <td> <input type="checkbox" id="checkbox2" onclick="atualizarSoma()"></td>
-                      <td><img src="assets/img/kalanchoe-vivien.jpg" alt="Kalanchoe Vivien"></td>
-                      <td>
-                          <p class="status vermelho">Kalanchoe Vivien</p>
-                      </td>
-                      <td>30</td>
-                      <td>R$5,00</td>
-                  </tr>
-                  <tr>
-                      <td><input type="checkbox" id="checkbox3" onclick="atualizarSoma()"></td>
-                      <td><img src="assets/img/kalanchoe-tomentosa.jpg" alt="Kalanchoe Tomentosa"></td>
-                      <td>
-                          <p class="status azul">Kalanchoe Tomentosa</p>
-                      </td>
-                      <td>30</td>
-                      <td>R$5,00</td>
-                  </tr>
-                  <tr>
-                      <td><input type="checkbox" id="checkbox4" onclick="atualizarSoma()"></td>
-                      <td><img src="assets/img/kalanchoe-laetivirens.jpg" alt="Kalanchoe Laetivirens"></td>
-                      <td>
-                          <p class="status amarela">Kalanchoe Laetivirens</p>
-                      </td>
-                      <td>30</td>
-                      <td>R$5,00</td>
-                  </tr>
-                  <tr>
-                      <td><input type="checkbox" id="checkbox5" onclick="atualizarSoma()"></td>
-                      <td><img src="assets/img/Echeveria-Pallida.jpg" alt="Echeveria Pallida"></td>
-                      <td>
-                          <p class="status roxo">Echeveria Pallida</p>
-                      </td>
-                      <td>30</td>
-                      <td>R$5,00</td>
-                  </tr>
-                  <tr>
-                      <td><input type="checkbox" id="checkbox6" onclick="atualizarSoma()"></td>
-                      <td><img src="assets/img/echeveria-skat.jpg" alt="Echeveria Skat"></td>
-                      <td>
-                          <p class="status verde">Echeveria Skat</p>
-                      </td>
-                      <td>30</td>
-                      <td>R$5,00</td>
-                  </tr>
-                  <tr>
-                      <td><input type="checkbox" id="checkbox7" onclick="atualizarSoma()"></td>
-                      <td><img src="assets/img/Echeveria-Paula.jpg" alt="Echeveria Paula"></td>
-                      <td>
-                          <p class="status vermelho">Echeveria Paula</p>
-                      </td>
-                      <td>30</td>
-                      <td>R$5,00</td>
-                  </tr>
-                  <tr>
-                      <td><input type="checkbox" id="checkbox8" onclick="atualizarSoma()"></td>
-                      <td><img src="assets/img/Echeveria-Shaviana.jpg" alt="Echeveria Shaviana"></td>
-                      <td>
-                          <p class="status azul">Echeveria Shaviana</p>
-                      </td>
-                      <td>30</td>
-                      <td>R$5,00</td>
-                  </tr>
-                  <tr>
-                      <td><input type="checkbox" id="checkbox9" onclick="atualizarSoma()"></td>
-                      <td><img src="assets/img/Crassula-capitella.jpg" alt="Crassula Capitella"></td>
-                      <td>
-                          <p class="status amarela">Crassula Capitella</p>
-                      </td>
-                      <td>30</td>
-                      <td>R$5,00</td>
-                  </tr>
-                  <tr>
-                      <td><input type="checkbox" id="checkbox10" onclick="atualizarSoma()"></td>
-                      <td><img src="assets/img/dorette.jpg" alt="dorette"></td>
-                      <td>
-                          <p class="status roxo">Echeveria Dorette</p>
-                      </td>
-                      <td>30</td>
-                      <td>R$5,00</td>
-                  </tr>
-                  <tr>
-                      <td><input type="checkbox" id="checkbox11" onclick="atualizarSoma()"></td>
-                      <td><img src="assets/img/echeveria-adorn.jpg" alt="echeveria-adorn"></td>
-                      <td>
-                          <p class="status verde">Echeveria Adorn</p>
-                      </td>
-                      <td>30</td>
-                      <td>R$5,00</td>
-                  </tr>
-                  <tr>
-                      <td><input type="checkbox" id="checkbox12" onclick="atualizarSoma()"></td>
-                      <td><img src="assets/img/sedum-golden-glow.jpg" alt="sedum-golden-glow"></td>
-                      <td>
-                          <p class="status vermelho">Sedum Golden Glow</p>
-                      </td>
-                      <td>30</td>
-                      <td>R$5,00</td>
-                  </tr>
-                  <tr>
-                      <td><input type="checkbox" id="checkbox13" onclick="atualizarSoma()"></td>
-                      <td><img src="assets/img/peperomia-dolabriformis.jpg" alt="Peperomia Dolabriformis"></td>
-                      <td>
-                          <p class="status azul">Peperomia Dolabriformis</p>
-                      </td>
-                      <td>30</td>
-                      <td>R$5,00</td>
-                  </tr>
-                  <tr>
-                      <td><input type="checkbox" id="checkbox14" onclick="atualizarSoma()"></td>
-                      <td><img src="assets/img/Echeveria-Cubic-Frost.jpg" alt="Crassula Capitella"></td>
-                      <td>
-                          <p class="status amarela">Echeveria Cubic Frost</p>
-                      </td>
-                      <td>30</td>
-                      <td>R$5,00</td>
-                  </tr>
-                  <tr>
-                      <td><input type="checkbox" id="checkbox15" onclick="atualizarSoma()"></td>
-                      <td><img src="assets/img/Graptoveria-Fantome.jpg" alt="Graptoveria Fantome"></td>
-                      <td>
-                          <p class="status roxo">Graptoveria Fantome</p>
-                      </td>
-                      <td>30</td>
-                      <td>R$5,00</td>
-                  </tr>
-                  <tr>
-                      <td><input type="checkbox" id="checkbox16" onclick="atualizarSoma()"></td>
-                      <td><img src="assets/img/Sedum-Treleasei.webp" alt="Sedum Treleasei"></td>
-                      <td>
-                          <p class="status verde">Sedum Treleasei</p>
-                      </td>
-                      <td>30</td>
-                      <td>R$5,00</td>
-                  </tr>
-                  <tr>
-                      <td><input type="checkbox" id="checkbox17" onclick="atualizarSoma()"></td>
-                      <td><img src="assets/img/Sedum-Adolphi.webp" alt="Sedum Adolphi"></td>
-                      <td>
-                          <p class="status vermelho">Sedum Adolphi</p>
-                      </td>
-                      <td>30</td>
-                      <td>R$5,00</td>
-                  </tr>
-                  <tr>
-                      <td><input type="checkbox" id="checkbox18" onclick="atualizarSoma()"></td>
-                      <td><img src="assets/img/Graptevenia-Auals.jpg" alt="Graptevenia Auals"></td>
-                      <td>
-                          <p class="status azul">Graptevenia Auals</p>
-                      </td>
-                      <td>30</td>
-                      <td>R$5,00</td>
-                  </tr>
-              </tbody>
+    <div class="janela-modal" id="janela-modal">
+      <div class="modal">
+        <button class="fechar" id="fechar">X</button>
+        <h1>Escolha sua especie</h1>
+
+        <section class="table__body">
+          <table id="tabela-suculentas">
+            <thead>
+              <tr>
+                <th>Ação<span class="icon-arrow"></span></th>
+                <th>Planta<span class="icon-arrow">&UpArrow;</span></th>
+                <th>Especie<span class="icon-arrow">&UpArrow;</span></th>
+                <th>Estoque<span class="icon-arrow">&UpArrow;</span></th>
+                <th>Preço<span class="icon-arrow">&UpArrow;</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <input
+                    type="checkbox"
+                    id="checkbox1"
+                    onclick="atualizarSoma()"
+                  />
+                </td>
+                <td>
+                  <img
+                    src="assets/img/echeveria-pulidonis.jpg"
+                    alt="echeveria-pulidonis"
+                  />
+                </td>
+                <td>
+                  <p class="status verde">Eceveria-pulidonis</p>
+                </td>
+                <td>30</td>
+                <td>R$5,00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="checkbox"
+                    id="checkbox2"
+                    onclick="atualizarSoma()"
+                  />
+                </td>
+                <td>
+                  <img
+                    src="assets/img/kalanchoe-vivien.jpg"
+                    alt="Kalanchoe Vivien"
+                  />
+                </td>
+                <td>
+                  <p class="status vermelho">Kalanchoe Vivien</p>
+                </td>
+                <td>30</td>
+                <td>R$5,00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="checkbox"
+                    id="checkbox3"
+                    onclick="atualizarSoma()"
+                  />
+                </td>
+                <td>
+                  <img
+                    src="assets/img/kalanchoe-tomentosa.jpg"
+                    alt="Kalanchoe Tomentosa"
+                  />
+                </td>
+                <td>
+                  <p class="status azul">Kalanchoe Tomentosa</p>
+                </td>
+                <td>30</td>
+                <td>R$5,00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="checkbox"
+                    id="checkbox4"
+                    onclick="atualizarSoma()"
+                  />
+                </td>
+                <td>
+                  <img
+                    src="assets/img/kalanchoe-laetivirens.jpg"
+                    alt="Kalanchoe Laetivirens"
+                  />
+                </td>
+                <td>
+                  <p class="status amarela">Kalanchoe Laetivirens</p>
+                </td>
+                <td>30</td>
+                <td>R$5,00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="checkbox"
+                    id="checkbox5"
+                    onclick="atualizarSoma()"
+                  />
+                </td>
+                <td>
+                  <img
+                    src="assets/img/Echeveria-Pallida.jpg"
+                    alt="Echeveria Pallida"
+                  />
+                </td>
+                <td>
+                  <p class="status roxo">Echeveria Pallida</p>
+                </td>
+                <td>30</td>
+                <td>R$5,00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="checkbox"
+                    id="checkbox6"
+                    onclick="atualizarSoma()"
+                  />
+                </td>
+                <td>
+                  <img
+                    src="assets/img/echeveria-skat.jpg"
+                    alt="Echeveria Skat"
+                  />
+                </td>
+                <td>
+                  <p class="status verde">Echeveria Skat</p>
+                </td>
+                <td>30</td>
+                <td>R$5,00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="checkbox"
+                    id="checkbox7"
+                    onclick="atualizarSoma()"
+                  />
+                </td>
+                <td>
+                  <img
+                    src="assets/img/Echeveria-Paula.jpg"
+                    alt="Echeveria Paula"
+                  />
+                </td>
+                <td>
+                  <p class="status vermelho">Echeveria Paula</p>
+                </td>
+                <td>30</td>
+                <td>R$5,00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="checkbox"
+                    id="checkbox8"
+                    onclick="atualizarSoma()"
+                  />
+                </td>
+                <td>
+                  <img
+                    src="assets/img/Echeveria-Shaviana.jpg"
+                    alt="Echeveria Shaviana"
+                  />
+                </td>
+                <td>
+                  <p class="status azul">Echeveria Shaviana</p>
+                </td>
+                <td>30</td>
+                <td>R$5,00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="checkbox"
+                    id="checkbox9"
+                    onclick="atualizarSoma()"
+                  />
+                </td>
+                <td>
+                  <img
+                    src="assets/img/Crassula-capitella.jpg"
+                    alt="Crassula Capitella"
+                  />
+                </td>
+                <td>
+                  <p class="status amarela">Crassula Capitella</p>
+                </td>
+                <td>30</td>
+                <td>R$5,00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="checkbox"
+                    id="checkbox10"
+                    onclick="atualizarSoma()"
+                  />
+                </td>
+                <td><img src="assets/img/dorette.jpg" alt="dorette" /></td>
+                <td>
+                  <p class="status roxo">Echeveria Dorette</p>
+                </td>
+                <td>30</td>
+                <td>R$5,00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="checkbox"
+                    id="checkbox11"
+                    onclick="atualizarSoma()"
+                  />
+                </td>
+                <td>
+                  <img
+                    src="assets/img/echeveria-adorn.jpg"
+                    alt="echeveria-adorn"
+                  />
+                </td>
+                <td>
+                  <p class="status verde">Echeveria Adorn</p>
+                </td>
+                <td>30</td>
+                <td>R$5,00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="checkbox"
+                    id="checkbox12"
+                    onclick="atualizarSoma()"
+                  />
+                </td>
+                <td>
+                  <img
+                    src="assets/img/sedum-golden-glow.jpg"
+                    alt="sedum-golden-glow"
+                  />
+                </td>
+                <td>
+                  <p class="status vermelho">Sedum Golden Glow</p>
+                </td>
+                <td>30</td>
+                <td>R$5,00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="checkbox"
+                    id="checkbox13"
+                    onclick="atualizarSoma()"
+                  />
+                </td>
+                <td>
+                  <img
+                    src="assets/img/peperomia-dolabriformis.jpg"
+                    alt="Peperomia Dolabriformis"
+                  />
+                </td>
+                <td>
+                  <p class="status azul">Peperomia Dolabriformis</p>
+                </td>
+                <td>30</td>
+                <td>R$5,00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="checkbox"
+                    id="checkbox14"
+                    onclick="atualizarSoma()"
+                  />
+                </td>
+                <td>
+                  <img
+                    src="assets/img/Echeveria-Cubic-Frost.jpg"
+                    alt="Crassula Capitella"
+                  />
+                </td>
+                <td>
+                  <p class="status amarela">Echeveria Cubic Frost</p>
+                </td>
+                <td>30</td>
+                <td>R$5,00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="checkbox"
+                    id="checkbox15"
+                    onclick="atualizarSoma()"
+                  />
+                </td>
+                <td>
+                  <img
+                    src="assets/img/Graptoveria-Fantome.jpg"
+                    alt="Graptoveria Fantome"
+                  />
+                </td>
+                <td>
+                  <p class="status roxo">Graptoveria Fantome</p>
+                </td>
+                <td>30</td>
+                <td>R$5,00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="checkbox"
+                    id="checkbox16"
+                    onclick="atualizarSoma()"
+                  />
+                </td>
+                <td>
+                  <img
+                    src="assets/img/Sedum-Treleasei.webp"
+                    alt="Sedum Treleasei"
+                  />
+                </td>
+                <td>
+                  <p class="status verde">Sedum Treleasei</p>
+                </td>
+                <td>30</td>
+                <td>R$5,00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="checkbox"
+                    id="checkbox17"
+                    onclick="atualizarSoma()"
+                  />
+                </td>
+                <td>
+                  <img
+                    src="assets/img/Sedum-Adolphi.webp"
+                    alt="Sedum Adolphi"
+                  />
+                </td>
+                <td>
+                  <p class="status vermelho">Sedum Adolphi</p>
+                </td>
+                <td>30</td>
+                <td>R$5,00</td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="checkbox"
+                    id="checkbox18"
+                    onclick="atualizarSoma()"
+                  />
+                </td>
+                <td>
+                  <img
+                    src="assets/img/Graptevenia-Auals.jpg"
+                    alt="Graptevenia Auals"
+                  />
+                </td>
+                <td>
+                  <p class="status azul">Graptevenia Auals</p>
+                </td>
+                <td>30</td>
+                <td>R$5,00</td>
+              </tr>
+            </tbody>
           </table>
-          <p class="btn-soma"> Total: <span id="soma">0</span></p>
-      </section>
-
-       </div>
+        </section>
+        <div class="total__enviar">
+            <span>Total: <span id="soma">0</span>
+            <button class="btn-send-email" onclick="sendEmail()">Enviar para email</button>
+          </div>
       </div>
+    </div>
 
     <script
       src="https://kit.fontawesome.com/f9e19193d6.js"

@@ -136,23 +136,30 @@ body {
 .janela-modal{
   width: 100vw;
   height: 100vh;
-  position: relative;
+  position: absolute;
   top: 0;
   left: 0;
   background-color: #00000080;
-  display: none;
- 
   z-index: 999;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  display: none;
 }
 
 .modal{
   width: 60%;
-  min-width: 450px;
-  min-height: 200px;
   background-color: #ffffff96;
   backdrop-filter: blur(10px);
-  padding: 50px;
+  padding: 10px;
   border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 95%;
 }
 
 .fechar{
@@ -167,6 +174,17 @@ body {
   color: #fff;
   font-size: 20px;
   cursor: pointer;
+}
+
+
+/* MELHORAR ESSE CODIGO */
+
+.total__enviar{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .janela-modal.abrir{
@@ -270,6 +288,9 @@ main.table{
   outline: none;
 }
 
+.table__body table{
+  height: 95vh;
+}
 .table__body{
   width: 95%;
   max-height: calc(89% - 1.6rem);
@@ -277,9 +298,8 @@ main.table{
 
   margin: .8rem auto;
   border-radius: .6rem;
-
-  overflow: auto;
-  overflow: overlay;
+  height: 95vh;
+  overflow-y: auto;
 }
 
 .table__body::-webkit-scrollbar{
