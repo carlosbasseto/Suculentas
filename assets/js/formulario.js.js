@@ -19,12 +19,13 @@ async function sendEmail() {
     lista.append(li);
   }
 
+  const userValue = username || "Aluno";
   const params = {
     to: email.value,
-    subect: "Vendas do Segundo Ano Sala: CE",
+    subject: "Vendas do Segundo Ano Sala: CE",
     html: `
-      <h1> Olá, ${username || "Aluno"}, segue a lista de suculentas que você escolheu </h1>
-      ${lista}
+      <h1> Olá, ${userValue}, segue a lista de suculentas que você escolheu </h1>
+      ${lista.outerHTML}
     `,
   }
   
