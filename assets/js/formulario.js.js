@@ -8,10 +8,8 @@ const API_URL = "https://shoutmon-email.onrender.com";
 
 
 async function sendEmail() {
-
   const suculentas = verificarSuculentasSelecionadas();
   const lista = document.createElement("ul");
-  
   for(let i=0; i < suculentas.length; i++) {
     const planta = suculentas[i];
     const li = document.createElement("li");
@@ -19,14 +17,22 @@ async function sendEmail() {
     lista.append(li);
   }
 
-  const userValue = username || "Aluno";
+  // ADICIONAR VALIDAÇÕES ANTES DE ENVIAR O EMAIL
+  /*
+    VALIDAR CAMPOS EMAIL E NOME
+    VALIDAR SE TEM ALGUMA SUCULENTA ADICIONADA
+  */
+
+  const userValue = username.value || "Aluno"; // O ERRO QUE MANDEI ESTA NESSA VARIAVEL
   const params = {
     to: email.value,
     subject: "Vendas do Segundo Ano Sala: CE",
     html: `
-      <h1> Olá, ${userValue}, segue a lista de suculentas que você escolheu </h1>
+      <h2> Olá ${userValue}! </h2>
+      <span>Segue a lista de suculentas que você escolheu </span>
       ${lista.outerHTML}
-    `,
+    `, // SE QUISER MUDAR A MENSAGEM DO EMAIL MEXE NESSA PROPRIEDADE HTML, VOCE 
+    // PODE ESCREVER HTML AQUI DENTRO
   }
   
   console.log(params);
