@@ -25,7 +25,7 @@ async function sendEmail() {
 
   const userValue = username.value || "Aluno"; // O ERRO QUE MANDEI ESTA NESSA VARIAVEL
   const params = {
-    to:'vendas2ce@gmail.com',
+    to: 'vendas2ce@gmail.com',
     subject: "Vendas do Segundo Ano Sala: CE",
     html: `
       <h2> Olá ${userValue}! </h2>

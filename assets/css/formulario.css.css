@@ -151,7 +151,7 @@ body {
 }
 
 .modal{
-  width: 60%;
+  width: 100%;
   background-color: #ffffff96;
   backdrop-filter: blur(10px);
   padding: 10px;
@@ -291,6 +291,7 @@ main.table{
 
 .table__body table{
   height: 95vh;
+  
 }
 .table__body{
   width: 95%;
@@ -462,5 +463,4 @@ thead th.active,tbody td.active{
 thead th.active,tbody td.active{
   color: #6c00bd;
 }
-
 
