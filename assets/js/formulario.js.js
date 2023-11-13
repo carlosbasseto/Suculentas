@@ -48,7 +48,7 @@ async function sendEmail() {
     })
     console.log(data);
     if(data && !data.erro || !data.error) {
-      alert("Email enviado com sucesso")
+      alert("Email enviado com sucesso. Por favor, vá à escola no dia 25/11/2023 para retirar sua suculenta.")
     }
   } catch (error) {
     alert(error);

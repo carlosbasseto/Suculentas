@@ -464,3 +464,20 @@ thead th.active,tbody td.active{
   color: #6c00bd;
 }
 
+.span{
+  font: bold;
+  font-size: 23px;
+}
+
+.btn-send-email{
+  font-size: 20px;
+  border-radius: 20px;
+  width: 200px;
+  border: 2px solid #000000;
+  background-color: #86e49d;
+  color: #000000;
+}
+
+.btn-send-email:hover{
+  color: #006b21;
+}
