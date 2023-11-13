@@ -51,7 +51,7 @@ h1{
 
 
 .subtitulo-section-1{
-  color: #000;
+  color: #ffffff;
   background-color: #121212;
   font-size: 35px;
 }
@@ -85,7 +85,7 @@ nav ul li{
 }
 
 .itens-navegacao{
-  color: var(--secondary-text);
+  color: #fff;
 }
 
 .itens-navegacao:hover{
@@ -641,7 +641,9 @@ footer span a{
   font-size: 22px;
 }
 
-
+.meios-de-comunicação{
+  color: #fff;
+}
 
 b{
   color: #2dbe1d;
@@ -830,13 +832,13 @@ h3{
 }
 
 .navbar .nav-links ul li.active a{
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   font-weight: 600;
   font-size: 24px;
 }
 
 .item-menu{
-  color: #000;
+  color: #ffffff;
 }
 
 .navbar .nav-links ul li.active a:hover{
@@ -847,7 +849,7 @@ h3{
 }
 
 .menu-hamburguer{
-  width: 35px;
+  width: 90px;
   right: 50px;
   position: absolute;
   display: none;
