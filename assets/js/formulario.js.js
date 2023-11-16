@@ -156,6 +156,17 @@ function abrirModal(){
   })
 }
 
+function abrirModal1(){
+  const modal = document.getElementById('janela-modal1')
+  modal.classList.add('abrir')
+
+  modal.addEventListener('click', (e) => {
+    if(e.target.id == 'fechar1' || e.target.id == 'janela-modal1'){
+      modal.classList.remove('abrir')
+    }
+  })
+}
+
 function atualizarSoma() {
   
   var checkbox1 = document.getElementById('checkbox1');
@@ -176,12 +187,31 @@ function atualizarSoma() {
   var checkbox16 = document.getElementById('checkbox16');
   var checkbox17 = document.getElementById('checkbox17');
   var checkbox18 = document.getElementById('checkbox18');
-  var somaElemento = document.getElementById('soma');
+  var checkbox19 = document.getElementById('checkbox19');
+  var checkbox19 = document.getElementById('checkbox20');
+  var checkbox19 = document.getElementById('checkbox21');
+  var checkbox19 = document.getElementById('checkbox22');
+  var checkbox19 = document.getElementById('checkbox23');
+  var checkbox19 = document.getElementById('checkbox24');
+  var checkbox19 = document.getElementById('checkbox25');
+  var checkbox19 = document.getElementById('checkbox26');
+  var checkbox19 = document.getElementById('checkbox27');
+  var checkbox19 = document.getElementById('checkbox28');
+  var checkbox19 = document.getElementById('checkbox29');
+  var checkbox19 = document.getElementById('checkbox30');
+  var checkbox19 = document.getElementById('checkbox31');
+  var checkbox19 = document.getElementById('checkbox32');
+  var checkbox19 = document.getElementById('checkbox33');
+  var checkbox19 = document.getElementById('checkbox34');
+  var checkbox19 = document.getElementById('checkbox35');
+  var checkbox19 = document.getElementById('checkbox36');
 
- 
+  var somaElemento = document.getElementById('soma');
   var soma = 0;
 
- 
+  
+
+
   if (checkbox1.checked) {
       soma += 5;
   }
@@ -254,9 +284,89 @@ if (checkbox17.checked) {
 if (checkbox18.checked) {
   soma += 5;
 }
-  
-  somaElemento.textContent = soma.toLocaleString("pt-br", {style: "currency", currency: "BRL"});
+
+
+if (checkbox19.checked) {
+  soma += 3;
 }
+
+if (checkbox20.checked) {
+  soma += 3;
+}
+
+if (checkbox21.checked) {
+  soma += 3;
+}
+
+if (checkbox22.checked) {
+  soma += 3;
+}
+
+if (checkbox23.checked) {
+  soma += 3;
+}
+
+if (checkbox24.checked) {
+  soma += 3;
+}
+
+if (checkbox25.checked) {
+  soma += 3;
+}
+
+if (checkbox26.checked) {
+  soma += 3;
+}
+
+if (checkbox27.checked) {
+  soma += 3;
+}
+
+if (checkbox28.checked) {
+  soma += 3;
+}
+
+if (checkbox29.checked) {
+  soma += 3;
+}
+
+if (checkbox30.checked) {
+  soma += 3;
+}
+
+if (checkbox31.checked) {
+  soma += 3;
+}
+
+if (checkbox32.checked) {
+  soma += 3;
+}
+
+if (checkbox33.checked) {
+  soma += 3;
+}
+
+if (checkbox34.checked) {
+  soma += 3;
+}
+
+if (checkbox35.checked) {
+  soma += 3;
+}
+
+if (checkbox36.checked) {
+  soma += 3;
+}
+
+if (checkbox37.checked) {
+  soma += 7;
+}
+
+somaElemento.textContent = soma.toLocaleString("pt-br", {style: "currency", currency: "BRL"});
+
+}
+
+
 
 
 
