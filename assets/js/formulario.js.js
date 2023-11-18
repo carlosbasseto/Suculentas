@@ -65,7 +65,7 @@ function verificarSuculentasSelecionadas() {
 
   for(let i=0; i < linhas.length; i++) {
     const checkbox = linhas[i]?.querySelector('input[type="checkbox"]');
-  
+    const plantaNome = linhas[i]?.querySelector(".status")?.innerText;
     if(checkbox?.checked) {
       // FUTURAMENTE ADICIONAR NOME E TAMBEM VALOR DAS PLANTAS PARA MANDAR O TOTAL NO EMAIL
       plantasSelecionadas.push(plantaNome);
