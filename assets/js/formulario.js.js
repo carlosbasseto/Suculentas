@@ -60,12 +60,13 @@ async function sendEmail() {
 function verificarSuculentasSelecionadas() {
   const tabela = document.getElementById("tabela-suculentas");
   const linhas = tabela.getElementsByTagName("tr");
-
+  
   const plantasSelecionadas = [];
 
   for(let i=0; i < linhas.length; i++) {
     const checkbox = linhas[i]?.querySelector('input[type="checkbox"]');
     const plantaNome = linhas[i]?.querySelector(".status")?.innerText;
+    const input = linhas[i]?.querySelector('input-qtd'?.innerText0);
     if(checkbox?.checked) {
       // FUTURAMENTE ADICIONAR NOME E TAMBEM VALOR DAS PLANTAS PARA MANDAR O TOTAL NO EMAIL
       plantasSelecionadas.push(plantaNome);
@@ -187,24 +188,24 @@ function atualizarSoma() {
   var checkbox16 = document.getElementById('checkbox16');
   var checkbox17 = document.getElementById('checkbox17');
   var checkbox18 = document.getElementById('checkbox18');
-  var checkbox19 = document.getElementById('checkbox19');
-  var checkbox19 = document.getElementById('checkbox20');
-  var checkbox19 = document.getElementById('checkbox21');
-  var checkbox19 = document.getElementById('checkbox22');
-  var checkbox19 = document.getElementById('checkbox23');
-  var checkbox19 = document.getElementById('checkbox24');
-  var checkbox19 = document.getElementById('checkbox25');
-  var checkbox19 = document.getElementById('checkbox26');
-  var checkbox19 = document.getElementById('checkbox27');
-  var checkbox19 = document.getElementById('checkbox28');
-  var checkbox19 = document.getElementById('checkbox29');
-  var checkbox19 = document.getElementById('checkbox30');
-  var checkbox19 = document.getElementById('checkbox31');
-  var checkbox19 = document.getElementById('checkbox32');
-  var checkbox19 = document.getElementById('checkbox33');
-  var checkbox19 = document.getElementById('checkbox34');
-  var checkbox19 = document.getElementById('checkbox35');
-  var checkbox19 = document.getElementById('checkbox36');
+  var number19 = document.getElementById('number19');
+  var checkbox20 = document.getElementById('checkbox20');
+  var checkbox21 = document.getElementById('checkbox21');
+  var checkbox22 = document.getElementById('checkbox22');
+  var checkbox23 = document.getElementById('checkbox23');
+  var checkbox24 = document.getElementById('checkbox24');
+  var checkbox25 = document.getElementById('checkbox25');
+  var checkbox26 = document.getElementById('checkbox26');
+  var checkbox27 = document.getElementById('checkbox27');
+  var checkbox28 = document.getElementById('checkbox28');
+  var checkbox29 = document.getElementById('checkbox29');
+  var checkbox30 = document.getElementById('checkbox30');
+  var checkbox31 = document.getElementById('checkbox31');
+  var checkbox32 = document.getElementById('checkbox32');
+  var checkbox33 = document.getElementById('checkbox33');
+  var checkbox34 = document.getElementById('checkbox34');
+  var checkbox35 = document.getElementById('checkbox35');
+  var checkbox36 = document.getElementById('checkbox36');
 
   var somaElemento = document.getElementById('soma');
   var soma = 0;
@@ -286,7 +287,7 @@ if (checkbox18.checked) {
 }
 
 
-if (checkbox19.checked) {
+if (number19.checked) {
   soma += 3;
 }
 
