@@ -57,28 +57,15 @@ async function sendEmail() {
 
 }
 
-
-
 function verificarSuculentasSelecionadas() {
   const tabela = document.getElementById("tabela-suculentas");
   const linhas = tabela.getElementsByTagName("tr");
-  
+
   const plantasSelecionadas = [];
 
   for(let i=0; i < linhas.length; i++) {
     const checkbox = linhas[i]?.querySelector('input[type="checkbox"]');
-    
-    const plantaNomeElement = linhas[i]?.querySelector(".status");
-const plantaNome = plantaNomeElement?.innerText;
-
-if (plantaNomeElement && plantaNome) {
-  // Cria um elemento span com a classe "icon-arrow"
-  const iconArrow = document.createElement("span");
-  iconArrow.classList.add("icon-arrow");
-
-  // Adiciona o ícone ao final do conteúdo do elemento .status
-  plantaNomeElement.appendChild(iconArrow);
-}
+  
     if(checkbox?.checked) {
       // FUTURAMENTE ADICIONAR NOME E TAMBEM VALOR DAS PLANTAS PARA MANDAR O TOTAL NO EMAIL
       plantasSelecionadas.push(plantaNome);
@@ -200,7 +187,7 @@ function atualizarSoma() {
   var checkbox16 = document.getElementById('checkbox16');
   var checkbox17 = document.getElementById('checkbox17');
   var checkbox18 = document.getElementById('checkbox18');
-  var number19 = document.getElementById('number19');
+  var checkbox19 = document.getElementById('checkbox19');
   var checkbox20 = document.getElementById('checkbox20');
   var checkbox21 = document.getElementById('checkbox21');
   var checkbox22 = document.getElementById('checkbox22');
@@ -218,6 +205,24 @@ function atualizarSoma() {
   var checkbox34 = document.getElementById('checkbox34');
   var checkbox35 = document.getElementById('checkbox35');
   var checkbox36 = document.getElementById('checkbox36');
+  var checkbox37 = document.getElementById('checkbox37');
+  var checkbox38 = document.getElementById('checkbox38');
+  var checkbox39 = document.getElementById('checkbox39');
+  var checkbox40 = document.getElementById('checkbox40');
+  var checkbox41 = document.getElementById('checkbox41');
+  var checkbox42 = document.getElementById('checkbox42');
+  var checkbox43 = document.getElementById('checkbox43');
+  var checkbox44 = document.getElementById('checkbox44');
+  var checkbox45 = document.getElementById('checkbox45');
+  var checkbox46 = document.getElementById('checkbox46');
+  var checkbox47 = document.getElementById('checkbox47');
+  var checkbox48 = document.getElementById('checkbox48');
+  var checkbox49 = document.getElementById('checkbox49');
+  var checkbox50 = document.getElementById('checkbox50');
+  var checkbox51 = document.getElementById('checkbox51');
+  var checkbox52 = document.getElementById('checkbox52');
+  var checkbox53 = document.getElementById('checkbox53');
+  var checkbox54 = document.getElementById('checkbox54');
 
   var somaElemento = document.getElementById('soma');
   var soma = 0;
@@ -299,7 +304,7 @@ if (checkbox18.checked) {
 }
 
 
-if (number19.checked) {
+if (checkbox19.checked) {
   soma += 3;
 }
 
@@ -372,6 +377,74 @@ if (checkbox36.checked) {
 }
 
 if (checkbox37.checked) {
+  soma += 7;
+}
+
+if (checkbox38.checked) {
+  soma += 7;
+}
+
+if (checkbox39.checked) {
+  soma += 7;
+}
+
+if (checkbox40.checked) {
+  soma += 7;
+}
+
+if (checkbox41.checked) {
+  soma += 7;
+}
+
+if (checkbox42.checked) {
+  soma += 7;
+}
+
+if (checkbox43.checked) {
+  soma += 7;
+}
+
+if (checkbox44.checked) {
+  soma += 7;
+}
+
+if (checkbox45.checked) {
+  soma += 7;
+}
+
+if (checkbox46.checked) {
+  soma += 7;
+}
+
+if (checkbox47.checked) {
+  soma += 7;
+}
+
+if (checkbox48.checked) {
+  soma += 7;
+}
+
+if (checkbox49.checked) {
+  soma += 7;
+}
+
+if (checkbox50.checked) {
+  soma += 7;
+}
+
+if (checkbox51.checked) {
+  soma += 7;
+}
+
+if (checkbox52.checked) {
+  soma += 7;
+}
+
+if (checkbox53.checked) {
+  soma += 7;
+}
+
+if (checkbox54.checked) {
   soma += 7;
 }
 
