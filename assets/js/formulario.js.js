@@ -57,6 +57,17 @@ async function sendEmail() {
 
 }
 
+function enviarEmail() {
+  // Obtém o valor do campo de número
+  var valorDoNumero = document.getElementById("number19").value;
+
+  // Abre o cliente de e-mail padrão com o assunto e corpo pré-preenchidos
+  var emailLink = "mailto:seu-email@example.com?subject=Assunto do Email&body=Valor do Campo: " + valorDoNumero;
+
+  // Abre o cliente de e-mail padrão com o link de e-mail
+  window.location.href = emailLink;
+}
+
 function verificarSuculentasSelecionadas() {
   const tabela = document.getElementById("tabela-suculentas");
   const linhas = tabela.getElementsByTagName("tr");
@@ -66,7 +77,6 @@ function verificarSuculentasSelecionadas() {
   for(let i=0; i < linhas.length; i++) {
     const checkbox = linhas[i]?.querySelector('input[type="checkbox"]');
     const plantaNome = linhas[i]?.querySelector(".status")?.innerText;
-    const input = linhas[i]?.querySelector('input[type="number"]');
     if(checkbox?.checked) {
       // FUTURAMENTE ADICIONAR NOME E TAMBEM VALOR DAS PLANTAS PARA MANDAR O TOTAL NO EMAIL
       plantasSelecionadas.push(plantaNome);
