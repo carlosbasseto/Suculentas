@@ -7,13 +7,180 @@ const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 const API_URL = "https://shoutmon-email.onrender.com";
 
 
+const plantas_suculentas = [
+  {
+    id: gerarId(),
+    nome: "Eceveria-pulidonis",
+    url: "assets/img/echeveria-pulidonis.jpg",
+  },
+
+  {
+    id: gerarId(),
+    nome: "Kalanchoe Vivien",
+    url: "assets/img/kalanchoe-vivien.jpg"
+  },
+
+  {
+    id: gerarId(),
+    nome: "Kalanchoe Tomentosa",
+    url: "assets/img/kalanchoe-tomentosa.jpg"
+  },
+  {
+    id: gerarId(),
+    nome: "Kalanchoe Laetivirens",
+    url: "assets/img/kalanchoe-laetivirens.jpg"
+  },
+  {
+    id: gerarId(),
+    nome: "Escheveria Pallida",
+    url: "assets/img/Echeveria-Pallida.jpg"
+  },
+  {
+    id: gerarId(),
+    nome: "Escheveria Skat",
+    url: "assets/img/echeveria-skat.jpg"
+  },
+  {
+    id: gerarId(),
+    nome: "Echeveria Paula",
+    url: "assets/img/Echeveria-Paula.jpg"
+  },
+  {
+    id: gerarId(),
+    nome: "Echeveria Shaviana",
+    url: "assets/img/Echeveria-Shaviana.jpg"
+  },
+  {
+    id: gerarId(),
+    nome: "Crassula Capitella",
+    url: "assets/img/Crassula-capitella.jpg"
+  },
+  {
+    id: gerarId(),
+    nome: "Echeveria Dorrete",
+    url: "assets/img/dorette.jpg"
+  },
+  {
+    id: gerarId(),
+    nome: "Sedum Golden Glow",
+    url: "assets/img/sedum-golden-glow.jpg"
+  },
+  {
+    id: gerarId(),
+    nome: "Peperomia Dolabriformis",
+    url: "assets/img/peperomia-dolabriformis.jpg"
+  },
+  {
+    id: gerarId(),
+    nome: "Echeveria Cubic Frost",
+    url: "assets/img/Echeveria-Cubic-Frost.jpg"
+  },
+  {
+    id: gerarId(),
+    nome: "Graptoveria Fantome",
+    url: "assets/img/Graptoveria-Fantome.jpg"
+  },
+  {
+    id: gerarId(),
+    nome: "Sedum-Treleasei",
+    url: "assets/img/Sedum-Treleasei.webp"
+  },
+  {
+    id: gerarId(),
+    nome: "Sedum Adolphi",
+    urL: "assets/img/Sedum-Adolphi.webp"
+  },
+  {
+    id: gerarId(),
+    nome: "Graptevenia Auals",
+    urL: "assets/img/Graptevenia-Auals.jpg"
+  }
+
+]
+
+
+function gerarId() {
+  return  Math.random().toString(36).substr(2, 9);
+}
+
+
+function gerarLinhasTabela() {
+  const bodyTable = document.getElementsByTagName("tbody")[0];
+  console.log(bodyTable);
+  for(let i=0; i < plantas_suculentas.length; i++) {
+    const planta = plantas_suculentas[i];
+    
+    const linha = document.createElement("tr");
+
+    const campo_tamanhos = document.createElement("td");
+
+
+    campo_tamanhos.classList.add("campo-tamanhos");
+    const checkboxP = criarCheckboxComLabel("P", planta.id);
+    campo_tamanhos.appendChild(checkboxP);
+
+    const checkboxM = criarCheckboxComLabel("M", planta.id);
+    campo_tamanhos.appendChild(checkboxM);
+
+    const checkboxG = criarCheckboxComLabel("G", planta.id);
+    campo_tamanhos.appendChild(checkboxG);
+
+    const campo_imagem = document.createElement("td");
+    const imagem = document.createElement("img");
+    imagem.src = planta.url;
+    imagem.alt = planta.nome;
+    campo_imagem.appendChild(imagem);
+
+    const campo_texto = document.createElement("td");
+
+    const paragrafo = document.createElement("p");
+    paragrafo.textContent = planta.nome;
+    paragrafo.classList.add("status", gerarClasseAleatoria());
+    
+    // Adicionar a tag <p> ao campo_texto
+    campo_texto.appendChild(paragrafo)
+
+
+    linha.appendChild(campo_tamanhos);
+    linha.appendChild(campo_imagem);
+    linha.appendChild(campo_texto);
+
+    bodyTable.appendChild(linha)
+
+  }
+}
+
+function gerarClasseAleatoria() {
+  const classes = ["amarela", "vermelho", "azul", "verde"];
+  const classeAleatoria = classes[Math.floor(Math.random() * classes.length)];
+  return classeAleatoria;
+}
+
+function criarCheckboxComLabel(tamanho, plantaId) {
+  const spanTamanhos = document.createElement("span");
+  spanTamanhos.classList.add("spam-tamanhos-planta");
+
+  const label = document.createElement("label");
+  label.textContent = tamanho;
+
+  const checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.id = `checkbox_${tamanho}_${plantaId}`;
+  checkbox.onclick = atualizarSoma;
+
+  spanTamanhos.appendChild(label);
+  spanTamanhos.appendChild(checkbox);
+
+  return spanTamanhos;
+}
+// METODO PARA ENVIAR EMAIL
 async function sendEmail() {
   const suculentas = verificarSuculentasSelecionadas();
   const lista = document.createElement("ul");
-  for(let i=0; i < suculentas.length; i++) {
+  for (let i = 0; i < suculentas.length; i++) {
     const planta = suculentas[i];
     const li = document.createElement("li");
-    li.append(planta);
+    li.textContent = `${planta.nome} - Tamanho: ${planta.tamanho}`;
     lista.append(li);
   }
 
@@ -23,20 +190,16 @@ async function sendEmail() {
     VALIDAR SE TEM ALGUMA SUCULENTA ADICIONADA
   */
 
-  const userValue = username.value || "Aluno"; // O ERRO QUE MANDEI ESTA NESSA VARIAVEL
+  const userValue = username.value || "Aluno"; 
   const params = {
     to: 'vendas2ce@gmail.com',
     subject: "Vendas do Segundo Ano Sala: CE",
     html: `
-      <h2> Olá ${userValue}! </h2>
-      <span>Segue a lista de suculentas que você escolheu </span>
+      <h2> Nome do Aluno: ${userValue}! </h2>
+      <span>Lista de suculentas do aluno: </span>
       ${lista.outerHTML}
-    `, // SE QUISER MUDAR A MENSAGEM DO EMAIL MEXE NESSA PROPRIEDADE HTML, VOCE 
-    // PODE ESCREVER HTML AQUI DENTRO
+    `, 
   }
-  
-  console.log(params);
-
   const body = JSON.stringify(params); 
   try {
     const data = await fetch(`${API_URL}/send-email`, {
@@ -54,24 +217,27 @@ async function sendEmail() {
     alert(error);
   }
 
+}
+function verificarSuculentasSelecionadas() {
+  const suculentasSelecionadas = [];
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
 
+  checkboxes.forEach((checkbox) => {
+    const plantaId = checkbox.id.split('_').pop();
+    const planta = plantas_suculentas.find((p) => p.id === plantaId);
+
+    if (planta) {
+      const tamanho = obterTamanhoSelecionado(checkbox);
+      suculentasSelecionadas.push({ nome: planta.nome, tamanho });
+    }
+  });
+
+  return suculentasSelecionadas;
 }
 
-function verificarSuculentasSelecionadas() {
-  const tabela = document.getElementById("tabela-suculentas");
-  const linhas = tabela.getElementsByTagName("tr");
-
-  const plantasSelecionadas = [];
-
-  for(let i=0; i < linhas.length; i++) {
-    const checkbox = linhas[i]?.querySelector('input[type="checkbox"]');
-    const plantaNome = linhas[i]?.querySelector(".status")?.innerText;
-    if(checkbox?.checked) {
-      // FUTURAMENTE ADICIONAR NOME E TAMBEM VALOR DAS PLANTAS PARA MANDAR O TOTAL NO EMAIL
-      plantasSelecionadas.push(plantaNome);
-    }
-  }
-  return plantasSelecionadas;
+function obterTamanhoSelecionado(checkbox) {
+  const tamanho = checkbox.id.split('_')[1];
+  return tamanho;
 }
 
 function checkInputs() {
@@ -167,293 +333,10 @@ function abrirModal1(){
   })
 }
 
-function atualizarSoma() {
-  
-  var checkbox1 = document.getElementById('checkbox1');
-  var checkbox2 = document.getElementById('checkbox2');
-  var checkbox3 = document.getElementById('checkbox3');
-  var checkbox4 = document.getElementById('checkbox4');
-  var checkbox5 = document.getElementById('checkbox5');
-  var checkbox6 = document.getElementById('checkbox6');
-  var checkbox7 = document.getElementById('checkbox7');
-  var checkbox8 = document.getElementById('checkbox8');
-  var checkbox9 = document.getElementById('checkbox9');
-  var checkbox10 = document.getElementById('checkbox10');
-  var checkbox11 = document.getElementById('checkbox11');
-  var checkbox12 = document.getElementById('checkbox12');
-  var checkbox13 = document.getElementById('checkbox13');
-  var checkbox14 = document.getElementById('checkbox14');
-  var checkbox15 = document.getElementById('checkbox15');
-  var checkbox16 = document.getElementById('checkbox16');
-  var checkbox17 = document.getElementById('checkbox17');
-  var checkbox18 = document.getElementById('checkbox18');
-  var checkbox19 = document.getElementById('checkbox19');
-  var checkbox20 = document.getElementById('checkbox20');
-  var checkbox21 = document.getElementById('checkbox21');
-  var checkbox22 = document.getElementById('checkbox22');
-  var checkbox23 = document.getElementById('checkbox23');
-  var checkbox24 = document.getElementById('checkbox24');
-  var checkbox25 = document.getElementById('checkbox25');
-  var checkbox26 = document.getElementById('checkbox26');
-  var checkbox27 = document.getElementById('checkbox27');
-  var checkbox28 = document.getElementById('checkbox28');
-  var checkbox29 = document.getElementById('checkbox29');
-  var checkbox30 = document.getElementById('checkbox30');
-  var checkbox31 = document.getElementById('checkbox31');
-  var checkbox32 = document.getElementById('checkbox32');
-  var checkbox33 = document.getElementById('checkbox33');
-  var checkbox34 = document.getElementById('checkbox34');
-  var checkbox35 = document.getElementById('checkbox35');
-  var checkbox36 = document.getElementById('checkbox36');
-  var checkbox37 = document.getElementById('checkbox37');
-  var checkbox38 = document.getElementById('checkbox38');
-  var checkbox39 = document.getElementById('checkbox39');
-  var checkbox40 = document.getElementById('checkbox40');
-  var checkbox41 = document.getElementById('checkbox41');
-  var checkbox42 = document.getElementById('checkbox42');
-  var checkbox43 = document.getElementById('checkbox43');
-  var checkbox44 = document.getElementById('checkbox44');
-  var checkbox45 = document.getElementById('checkbox45');
-  var checkbox46 = document.getElementById('checkbox46');
-  var checkbox47 = document.getElementById('checkbox47');
-  var checkbox48 = document.getElementById('checkbox48');
-  var checkbox49 = document.getElementById('checkbox49');
-  var checkbox50 = document.getElementById('checkbox50');
-  var checkbox51 = document.getElementById('checkbox51');
-  var checkbox52 = document.getElementById('checkbox52');
-  var checkbox53 = document.getElementById('checkbox53');
-  var checkbox54 = document.getElementById('checkbox54');
-
-  var somaElemento = document.getElementById('soma');
-  var soma = 0;
-
-  
-
-
-  if (checkbox1.checked) {
-      soma += 5;
-  }
-
- 
-  if (checkbox2.checked) {
-      soma += 5;
-  }
-
-  if (checkbox3.checked) {
-    soma += 5;
+function atualizarSoma(e) {
+  console.log(e);
+  const planta = e.target.value;
+  console.log(planta);
 }
 
-if (checkbox4.checked) {
-  soma += 5;
-}
-
-if (checkbox5.checked) {
-  soma += 5;
-}
-
-if (checkbox6.checked) {
-  soma += 5;
-}
-
-if (checkbox7.checked) {
-  soma += 5;
-}
-
-if (checkbox8.checked) {
-  soma += 5;
-}
-
-if (checkbox9.checked) {
-  soma += 5;
-}
-
-if (checkbox10.checked) {
-  soma += 5;
-}
-
-if (checkbox11.checked) {
-  soma += 5;
-}
-
-if (checkbox12.checked) {
-  soma += 5;
-}
-
-if (checkbox13.checked) {
-  soma += 5;
-}
-
-if (checkbox14.checked) {
-  soma += 5;
-}
-
-if (checkbox15.checked) {
-  soma += 5;
-}
-
-if (checkbox16.checked) {
-  soma += 5;
-}
-
-if (checkbox17.checked) {
-  soma += 5;
-}
-
-if (checkbox18.checked) {
-  soma += 5;
-}
-
-
-if (checkbox19.checked) {
-  soma += 3;
-}
-
-if (checkbox20.checked) {
-  soma += 3;
-}
-
-if (checkbox21.checked) {
-  soma += 3;
-}
-
-if (checkbox22.checked) {
-  soma += 3;
-}
-
-if (checkbox23.checked) {
-  soma += 3;
-}
-
-if (checkbox24.checked) {
-  soma += 3;
-}
-
-if (checkbox25.checked) {
-  soma += 3;
-}
-
-if (checkbox26.checked) {
-  soma += 3;
-}
-
-if (checkbox27.checked) {
-  soma += 3;
-}
-
-if (checkbox28.checked) {
-  soma += 3;
-}
-
-if (checkbox29.checked) {
-  soma += 3;
-}
-
-if (checkbox30.checked) {
-  soma += 3;
-}
-
-if (checkbox31.checked) {
-  soma += 3;
-}
-
-if (checkbox32.checked) {
-  soma += 3;
-}
-
-if (checkbox33.checked) {
-  soma += 3;
-}
-
-if (checkbox34.checked) {
-  soma += 3;
-}
-
-if (checkbox35.checked) {
-  soma += 3;
-}
-
-if (checkbox36.checked) {
-  soma += 3;
-}
-
-if (checkbox37.checked) {
-  soma += 7;
-}
-
-if (checkbox38.checked) {
-  soma += 7;
-}
-
-if (checkbox39.checked) {
-  soma += 7;
-}
-
-if (checkbox40.checked) {
-  soma += 7;
-}
-
-if (checkbox41.checked) {
-  soma += 7;
-}
-
-if (checkbox42.checked) {
-  soma += 7;
-}
-
-if (checkbox43.checked) {
-  soma += 7;
-}
-
-if (checkbox44.checked) {
-  soma += 7;
-}
-
-if (checkbox45.checked) {
-  soma += 7;
-}
-
-if (checkbox46.checked) {
-  soma += 7;
-}
-
-if (checkbox47.checked) {
-  soma += 7;
-}
-
-if (checkbox48.checked) {
-  soma += 7;
-}
-
-if (checkbox49.checked) {
-  soma += 7;
-}
-
-if (checkbox50.checked) {
-  soma += 7;
-}
-
-if (checkbox51.checked) {
-  soma += 7;
-}
-
-if (checkbox52.checked) {
-  soma += 7;
-}
-
-if (checkbox53.checked) {
-  soma += 7;
-}
-
-if (checkbox54.checked) {
-  soma += 7;
-}
-
-somaElemento.textContent = soma.toLocaleString("pt-br", {style: "currency", currency: "BRL"});
-
-}
-
-
-
-
-
-
+gerarLinhasTabela();
