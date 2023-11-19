@@ -771,3 +771,15 @@ thead th.active,tbody td.active{
 thead th.active,tbody td.active{
   color: #6c00bd;
 }
+
+.spam-tamanhos-planta{
+  display: flex;
+  flex-direction: column;
+}
+
+.campo-tamanhos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
