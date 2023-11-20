@@ -6,6 +6,8 @@ const passwordConfirmation = document.getElementById("password-confirmation");
 const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 const API_URL = "https://shoutmon-email.onrender.com";
 
+const elementoSoma = document.getElementById("soma");
+let somaPlantas = 0;
 
 const plantas_suculentas = [
   {
@@ -106,7 +108,6 @@ function gerarId() {
 
 function gerarLinhasTabela() {
   const bodyTable = document.getElementsByTagName("tbody")[0];
-  console.log(bodyTable);
   for(let i=0; i < plantas_suculentas.length; i++) {
     const planta = plantas_suculentas[i];
     
@@ -209,20 +210,18 @@ async function sendEmail() {
       },
       body
     })
-    console.log(data);
     if(data && !data.erro || !data.error) {
-      alert("Email enviado com sucesso. Por favor, vá à escola no dia 25/11/2023 para retirar sua suculenta.")
+      alert("Email enviado com sucesso. Por favor, vá à escola no dia 25/11/2023 para retirar sua suculenta.");
     }
   } catch (error) {
     alert(error);
-  }
-
+  } 
 }
 function verificarSuculentasSelecionadas() {
   const suculentasSelecionadas = [];
   const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
 
-  checkboxes.forEach((checkbox) => {
+  checkboxes.forEach((checkbox, checked) => {
     const plantaId = checkbox.id.split('_').pop();
     const planta = plantas_suculentas.find((p) => p.id === plantaId);
 
@@ -334,9 +333,16 @@ function abrirModal1(){
 }
 
 function atualizarSoma(e) {
-  console.log(e);
-  const planta = e.target.value;
-  console.log(planta);
+  let tamanho = e.target.id;
+  if(tamanho) {
+    tamanho = tamanho.split("_")[1];
+    const valoresTamanhos = {
+      "P": 3,
+      "M": 5,
+      "G": 7
+    }
+    somaPlantas += valoresTamanhos[tamanho];
+  }
+  elementoSoma.innerText = somaPlantas.toLocaleString("pt-BR", {style: "currency", currency: "BRL"})
 }
-
 gerarLinhasTabela();
