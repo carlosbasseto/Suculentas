@@ -221,7 +221,7 @@ function verificarSuculentasSelecionadas() {
   const suculentasSelecionadas = [];
   const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
 
-  checkboxes.forEach((checkbox, checked) => {
+  checkboxes.forEach((checkbox) => {
     const plantaId = checkbox.id.split('_').pop();
     const planta = plantas_suculentas.find((p) => p.id === plantaId);
 
@@ -334,6 +334,7 @@ function abrirModal1(){
 
 function atualizarSoma(e) {
   let tamanho = e.target.id;
+  const inputCheckado = e.target.checked;
   if(tamanho) {
     tamanho = tamanho.split("_")[1];
     const valoresTamanhos = {
@@ -341,8 +342,16 @@ function atualizarSoma(e) {
       "M": 5,
       "G": 7
     }
-    somaPlantas += valoresTamanhos[tamanho];
+    if(!inputCheckado) {
+      somaPlantas -= valoresTamanhos[tamanho];
+    } else {
+      somaPlantas += valoresTamanhos[tamanho];
+    }
   }
+
+  
+ 
   elementoSoma.innerText = somaPlantas.toLocaleString("pt-BR", {style: "currency", currency: "BRL"})
 }
+
 gerarLinhasTabela();
