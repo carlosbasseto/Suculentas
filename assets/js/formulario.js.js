@@ -52,11 +52,7 @@ const plantas_suculentas = [
     nome: "Echeveria Shaviana",
     url: "assets/img/Echeveria-Shaviana.jpg"
   },
-  {
-    id: gerarId(),
-    nome: "Crassula Capitella",
-    url: "assets/img/Crassula-capitella.jpg"
-  },
+  
   {
     id: gerarId(),
     nome: "Echeveria Dorrete",
